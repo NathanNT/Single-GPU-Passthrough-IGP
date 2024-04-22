@@ -4,9 +4,9 @@
 
 # Single-GPU-passthrough-amd-nvidia
 
-### This repository is a fork from ilayna's [Single-GPU-passthrough-amd-nvidia](https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia) designed to function in configurations using two monitors with a single GPU and a CPU with an integrated graphics, maintaining display on the host OS while running a VM with the passed-through GPU. This setup requires one monitor to be connected to the motherboard and the other to the GPU, along with two mice and two keyboards.
+### This repository is a fork from ilayna's [Single-GPU-passthrough-amd-nvidia](https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia) adapted to work with dual-monitor setups that use a single GPU and a CPU with integrated graphics. The configuration to maintain display on host OS while the GPU is passed-through to the VM. To achieve this, one monitor must be connected to the motherboard and the other to the GPU, with each having its own mouse and keyboard.
 
-### The major issue encountered was the malfunctioning of libvirt after the VM shut down, which prevented stopping the VFIO modules or restarting the daemon. The issue seemed to occur when the display manager was not shut down before VM startup. The resolution involves loading the VFIO modules and restarting the display manager upon VM launch, followed by unloading the VFIO modules and reloading the GPU drivers when the VM shuts down as usual.
+### The major issue encountered was that libvirt malfunctioned after the VM was shut down, which interfered with stopping the VFIO modules or restarting the libvirt daemon. This problem tended to arise if the display manager was not closed before starting the VM. The solution involves loading the VFIO modules and restarting the display manager when the VM launches. After the VM is shut down, the process includes unloading the VFIO modules and reloading the GPU drivers as usual.
 
 ## if you are having troubles please see the '[manual](https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia/tree/3d8666e66d009493a3f5b574bdba15954ed86af5)' branch
 
