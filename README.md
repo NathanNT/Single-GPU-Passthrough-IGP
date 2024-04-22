@@ -4,7 +4,7 @@
 
 # Single-GPU-passthrough-amd-nvidia
 
-#### This repository is a fork from ilayna's [Single-GPU-passthrough-amd-nvidia](https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia) adapted to work with dual-monitor setups that use a single GPU and a CPU with integrated graphics. The configuration to maintain display on host OS while the GPU is passed-through to the VM. To achieve this, one monitor must be connected to the motherboard and the other to the GPU, with each having its own mouse and keyboard.
+#### This repository is a fork from ilayna's [Single-GPU-passthrough-amd-nvidia](https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia) adapted to work with dual-monitor setups that use a single GPU and a CPU with integrated graphics. The goal is to maintain display on host OS while the GPU is passed-through to the VM. To achieve this, one monitor must be connected to the motherboard and the other to the GPU, with each having its own mouse and keyboard.
 
 #### The major issue encountered was that libvirt malfunctioned after the VM was shut down, which interfered with stopping the VFIO modules or restarting the libvirt daemon. This problem tended to arise if the display manager was not closed before starting the VM. The solution involves restarting the display manager when the VM is launched. After the VM is shut down, we unload VFIO modules and reload the GPU drivers as usual.
 
